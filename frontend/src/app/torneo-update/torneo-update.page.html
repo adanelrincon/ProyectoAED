@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Actualiza el Torneo</ion-title>
+  </ion-toolbar>
+</ion-header>
+  <ion-content class="ion-padding">
+    <form [formGroup]="torneoUpdateForm" (ngSubmit)="updateTorneo()" novalidate>
+      <ion-item lines="full">
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input formControlName="nombre_torneo" type="text" required></ion-input>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-label position="floating">Localizacion</ion-label>
+        <ion-input formControlName="localizacion" type="text" required></ion-input>
+      </ion-item>
+
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" color="success" shape="full" expand="block">
+            Actualizar Torneo
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+
+    <ion-button (click)="goToTorneo()" color="primary" expand="full">
+      Ver Torneos
+    </ion-button>
+  
+   
+    <ion-button (click)="goToHome()" color="primary" expand="full">
+      Ir al Inicio
+    </ion-button>
+
+  </ion-content>

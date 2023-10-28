@@ -1,0 +1,51 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Valorant Teams
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-menu [type]="menuType" content-id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu Content</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-menu-toggle>
+      <ion-button (click)="goToTeams()" color="success">
+        Team List
+        <ion-icon name="book-outline"></ion-icon>
+      </ion-button>
+    </ion-menu-toggle>
+    <ion-menu-toggle>
+      <ion-button (click)="goToAddTeams()" color="success">
+        Add Team
+        <ion-icon name="add-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-menu-toggle>
+    <ion-menu-toggle>
+      <ion-button color="medium">Close Menu</ion-button>
+    </ion-menu-toggle>
+  </ion-content>
+</ion-menu>
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-img
+  src="https://www.esports.net/wp-content/uploads/2022/09/VCT-2023-Teams-Franchising.jpg"
+  alt="All VCT Teams 2023"
+></ion-img>
+
+    <br />
+    <ion-menu-toggle>
+      <ion-button color="medium">Open Menu</ion-button>
+    </ion-menu-toggle>
+  </ion-content>
+</div>
+

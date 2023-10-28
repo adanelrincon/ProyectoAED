@@ -1,0 +1,7 @@
+{
+  "name": "ValorantTeams",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Actualiza el Equipo</ion-title>
+  </ion-toolbar>
+</ion-header>
+  <ion-content class="ion-padding">
+    <form [formGroup]="equipoUpdateForm" (ngSubmit)="updateEquipo()" novalidate>
+      <ion-item lines="full">
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input formControlName="nombre_equipo" type="text" required></ion-input>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-label position="floating">Region</ion-label>
+        <ion-input formControlName="region" type="text" required></ion-input>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-label position="floating">Torneo ID</ion-label>
+        <ion-input formControlName="torneo" type="number" required></ion-input>
+      </ion-item>
+
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" color="success" shape="full" expand="block">
+            Actualizar Equipo
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+
+    <ion-button (click)="goToEquipos()" color="primary" expand="full">
+      Ver Equipos
+    </ion-button>
+  
+   
+    <ion-button (click)="goToHome()" color="primary" expand="full">
+      Ir al Inicio
+    </ion-button>
+
+  </ion-content>
+

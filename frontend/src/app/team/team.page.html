@@ -1,0 +1,60 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Team List</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-menu [type]="menuList" content-id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu Content</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-menu-toggle>
+      <ion-button (click)="goToHome()" color="success">
+        Home
+        <ion-icon name="home"></ion-icon>
+      </ion-button>
+    </ion-menu-toggle>
+    <ion-menu-toggle>
+      <ion-button (click)="goToAddTeams()" color="success">
+        Add Team
+        <ion-icon name="add-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-menu-toggle>
+    <ion-menu-toggle>
+      <ion-button color="medium">Close Menu</ion-button>
+    </ion-menu-toggle>
+  </ion-content>
+</ion-menu>
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-list [inset]="true">
+      <ion-item *ngFor="let t of teams">
+        <ion-label class="list">
+          <h1>{{t.name}}</h1>
+          <p>{{t.region}}</p>
+          <p>{{t.position}}</p>
+          <ion-button fill="outline" (click)="deleteTeam(t.id)" color="danger">
+            Delete
+            <ion-icon name="trash-outline"></ion-icon>
+          </ion-button>
+          <ion-button fill="outline" (click)="goToEdit(t)" color="success">
+            Edit
+            <ion-icon name="create-outline"></ion-icon>
+          </ion-button>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+    <br />
+    <ion-menu-toggle>
+      <ion-button color="medium">Open Menu</ion-button>
+    </ion-menu-toggle>
+  </ion-content>
+</div>
