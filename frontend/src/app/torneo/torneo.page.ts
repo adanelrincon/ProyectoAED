@@ -42,4 +42,8 @@ export class TorneoPage implements OnInit {
   goToAddTorneo() {
     this.router.navigate(['/torneo-add']);
   }
+
+  navigateTo(page: string) {
+    this.router.navigate(['/' + page]);
+  }
 }

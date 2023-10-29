@@ -5,21 +5,31 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-list>
-    <ion-item *ngFor="let t of torneos">
-      {{ t.nombre_torneo }} - {{ t.localizacion }}
-      <ion-buttons slot="end">
-        <ion-button (click)="goToUpdateTorneo(t)">Actualizar</ion-button>
-        <ion-button (click)="deleteTorneo(t.id)">Borrar</ion-button>
+  <ion-content class="ion-padding">
+    <ion-toolbar>
+      <ion-buttons slot="">
+        <ion-button (click)="navigateTo('jugador')">Ver Jugadores</ion-button>
+        <ion-button (click)="navigateTo('jugador-add')">Añadir Jugador</ion-button>
+        <ion-button (click)="navigateTo('equipo')">Ver Equipos</ion-button>
+        <ion-button (click)="navigateTo('equipo-add')">Añadir Equipo</ion-button>
+        <ion-button (click)="navigateTo('torneo')">Ver Torneos</ion-button>
+        <ion-button (click)="navigateTo('torneo-add')">Añadir Torneo</ion-button>
       </ion-buttons>
-    </ion-item>
-  </ion-list>
-  <ion-button (click)="goToAddTorneo()" color="primary" expand="full">
-    Añadir Torneo
-  </ion-button>
+    </ion-toolbar>
+    <ion-list>
+      <ion-item *ngFor="let t of torneos">
+        {{ t.nombre_torneo }} - {{ t.localizacion }}
+        <ion-buttons slot="end">
+          <ion-button (click)="goToUpdateTorneo(t)">Actualizar</ion-button>
+          <ion-button (click)="deleteTorneo(t.id)">Borrar</ion-button>
+        </ion-buttons>
+      </ion-item>
+    </ion-list>
+    <ion-button (click)="goToAddTorneo()" color="primary" expand="full">
+      Añadir Torneo
+    </ion-button>
 
-  <ion-button (click)="goToHome()" color="primary" expand="full">
-    Ir al Inicio
-  </ion-button>
-</ion-content>
-
+    <ion-button (click)="goToHome()" color="primary" expand="full">
+      Ir al Inicio
+    </ion-button>
+  </ion-content>

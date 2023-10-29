@@ -22,14 +22,13 @@ export class JugadorUpdatePage implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       const id = params['id'];
-
       this.jugadorService.getOneJugador(id).subscribe((jugador: any) => {
-        this.jugadorService = jugador;
+        this.jugadorToUpdate = jugador;
         this.jugadorUpdateForm.setValue({
           nombre_jugador: jugador.nombre_jugador,
           rol: jugador.rol,
           nacionalidad: jugador.nacionalidad,
-          equipo: jugador.equipo
+          idEquipo: jugador.idEquipo
         });
       });
     });
@@ -38,18 +37,18 @@ export class JugadorUpdatePage implements OnInit {
       nombre_jugador: ['', [Validators.required]],
       rol: ['', [Validators.required]],
       nacionalidad: ['', [Validators.required]],
-      equipo: ['', [Validators.required]]
+      idEquipo: ['', [Validators.required]]
     });
   }
 
   updateJugador() {
-    if (this.jugadorUpdateForm.valid && this.jugadorToUpdate) {
-      const { nombre_jugador, rol, nacionalidad, equipo, id } = this.jugadorToUpdate;
+    if (this.jugadorUpdateForm.valid) {
+      const { nombre_jugador, rol, nacionalidad, idEquipo, id } = this.jugadorToUpdate;
       const updatedJugador = {
         nombre_jugador: this.jugadorUpdateForm.value.nombre_jugador,
         rol: this.jugadorUpdateForm.value.rol,
         nacionalidad: this.jugadorUpdateForm.value.nacionalidad,
-        equipo: this.jugadorUpdateForm.value.equipo
+        idEquipo: this.jugadorUpdateForm.value.idEquipo
       };
 
       this.jugadorService.updateJugador(id, updatedJugador).subscribe(response => {
@@ -59,12 +58,12 @@ export class JugadorUpdatePage implements OnInit {
     }
   }
 
-  goToHome() {
-    window.location.href = "/home";
-  }
-
   goToJugadores() {
     window.location.href = "/jugador";
+  }
+
+  navigateTo(page: string) {
+    this.router.navigate(['/' + page]);
   }
 }
 

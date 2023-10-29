@@ -13,7 +13,7 @@ import { EquipoPage } from './equipo.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    EquipoPageRoutingModule
+    EquipoPageRoutingModule,
   ],
   declarations: [EquipoPage]
 })

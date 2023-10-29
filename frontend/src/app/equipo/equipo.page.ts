@@ -34,11 +34,11 @@ export class EquipoPage implements OnInit {
     this.router.navigate(['/equipo-update', equipo.id]);
   }
 
-  goToHome() {
-    this.router.navigate(['/home']);
-  }
-
   goToAddEquipo() {
     this.router.navigate(['/equipo-add']);
+  }
+
+  navigateTo(page: string) {
+    this.router.navigate(['/' + page]);
   }
 }

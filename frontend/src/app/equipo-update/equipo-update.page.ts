@@ -28,7 +28,7 @@ export class EquipoUpdatePage implements OnInit {
         this.equipoUpdateForm.setValue({
           nombre_equipo: equipo.nombre_equipo,
           region: equipo.region,
-          //torneo: equipo.torneo
+          idTorneo: equipo.idTorneo
         });
       });
     });
@@ -36,17 +36,17 @@ export class EquipoUpdatePage implements OnInit {
     this.equipoUpdateForm = this.fb.group({
       nombre_equipo: ['', [Validators.required]],
       region: ['', [Validators.required]],
-      //torneo: ['', [Validators.required]]
+      idTorneo: ['', [Validators.required]]
     });
   }
 
   updateEquipo() {
     if (this.equipoUpdateForm.valid && this.equipoToUpdate) {
-      const { nombre_equipo, region, torneo, id } = this.equipoToUpdate;
+      const { nombre_equipo, region, idTorneo, id } = this.equipoToUpdate;
       const updatedequipo = {
         nombre_equipo: this.equipoUpdateForm.value.nombre_equipo,
         region: this.equipoUpdateForm.value.region,
-        //torneo: this.equipoUpdateForm.value.torneo
+        idTorneo: this.equipoUpdateForm.value.idTorneo
       };
 
       this.equipoService.updateEquipo(id, updatedequipo).subscribe(response => {
@@ -55,13 +55,12 @@ export class EquipoUpdatePage implements OnInit {
       });
     }
   }
-
-  goToHome() {
-    window.location.href = "/home";
-  }
-
   goToEquipos() {
     window.location.href = "/equipo";
+  }
+
+  navigateTo(page: string) {
+    this.router.navigate(['/' + page]);
   }
 }
 

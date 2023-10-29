@@ -1,26 +1,42 @@
-# Adan Valorant Teams
+# Valorant Competitivo
+## Adán Pérez Hernández - 2DAM-T
 
-An app where you can see all the VCT 2023 Valorant Teams, add new teams, delete teams, or update teams.
+App donde puedes administrar los torneos de Valorant, los equipos participantes y los jugadores de cada equipo.
 
-#Requirements
+## Creado en =>
 
--Backend = Eclipse[with Spring]
--Frontend = VisualStudioCode[Ionic Angular]
--DataBase = MySQK
+- Backend = Spring
+- Frontend = Ionic Angular
+- Base de datos = MySQL
 
-## Postman
+### Para empezar recuerda =>
+- Recuera intalar las dependencias del frontend con =>
 
-https://documenter.getpostman.com/view/29809558/2s9YJgSKXh
+```
+cd frontend
+```
+```
+npm install
+```
 
-##DataBase
+- Para iniciar el frontend =>
+```
+ionic serve
+```
 
-DB name = db_teams
+- Para iniciar el backend iniciar la app con la opción de Run As 'Spring Boot App'
 
-CREATE TABLE teams (
-  id int not null AUTO INCREMENT,
-  name varchar(50) not null,
-  region varchar(20) not null,
-  position int not null,
-  PRIMARY KEY (id)
-)
+- Para la base de datos solo tendras que crear la base de datos, las tablas se añaden automáticamente.
+
+
+## Base de datos =>
+
+- Nombre de la base de datos =>
+```
+db_orm_teams
+```
+
+### Lógica =>
+- Un torneo se compone de un idTorneo, nombre_torneo y la localización, un equipo se compone de un idEquipo nombre_equipo, region, y el torneo en el que se encuentra actualmente, por lo que a un torneo pueden apuntarse muchos equipos, pero un equipo solo puede estar en un torneo al mismo tiempo.
+- Y por último un jugador está compuesto por idJugador, nombre_jugador, rol, nacionalidad y el equipo al que pertenece, por lo que en un equipo pueden haber muchos jugadores pero un jugador solo puede estar en un equipo al mismo tiempo.
 

@@ -5,7 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import com.adan.valorantteams.entity.models.Equipo;
+import com.adan.valorantteams.entity.models.Torneo;
 import com.adan.valorantteams.entity.services.IEquipoService;
+import com.adan.valorantteams.entity.services.ITorneoService;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -25,7 +27,7 @@ public class EquipoController {
 
     @PostMapping("/equipos")
     public void addEquipo(@RequestBody Equipo equipo) {
-        equipoService.add(equipo);
+       equipoService.add(equipo);
     }
 
     @PutMapping("/equipos/{id}")

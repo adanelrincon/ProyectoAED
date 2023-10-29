@@ -23,6 +23,8 @@ public class Equipo {
     private String nombre_equipo;
     @Column(name = "region")
     private String region;
+    @Column(name = "idTorneo")
+    private long idTorneo;
     
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "torneo")
@@ -31,25 +33,36 @@ public class Equipo {
     @OneToMany(mappedBy = "equipo", cascade = CascadeType.ALL)
     private List<Jugador> jugadores;
     
-    public Equipo() {
-    	
-    }
+    public Equipo() {}
 
-	// Getters y Setters
-
-    public Equipo(String nombre_equipo, String region, Torneo torneo, List<Jugador> jugadores) {
+    public Equipo(String nombre_equipo, String region, long idTorneo) {
 		super();
 		this.nombre_equipo = nombre_equipo;
 		this.region = region;
-		this.torneo = torneo;
-		this.jugadores = jugadores;
+		this.idTorneo = idTorneo;
 	}
 
+	public Torneo getTorneo() {
+		return torneo;
+	}
+
+	public void setTorneo(Torneo torneo) {
+		this.torneo = torneo;
+	}
+
+	public List<Jugador> getJugadores() {
+		return jugadores;
+	}
+
+	public void setJugadores(List<Jugador> jugadores) {
+		this.jugadores = jugadores;
+	}
+	
 	public long getId() {
         return id;
     }
 
-    public void setId(long equipo_id) {
+	public void setId(long equipo_id) {
         this.id = equipo_id;
     }
 
@@ -68,4 +81,13 @@ public class Equipo {
     public void setRegion(String region) {
         this.region = region;
     }
+
+	public long getIdTorneo() {
+		return idTorneo;
+	}
+
+	public void setIdTorneo(long idTorneo) {
+		this.idTorneo = idTorneo;
+	}
+    
 }

@@ -3,7 +3,18 @@
     <ion-title>Actualiza el Torneo</ion-title>
   </ion-toolbar>
 </ion-header>
+<ion-content class="ion-padding">
   <ion-content class="ion-padding">
+    <ion-toolbar>
+      <ion-buttons slot="">
+        <ion-button (click)="navigateTo('jugador')">Ver Jugadores</ion-button>
+        <ion-button (click)="navigateTo('jugador-add')">Añadir Jugador</ion-button>
+        <ion-button (click)="navigateTo('equipo')">Ver Equipos</ion-button>
+        <ion-button (click)="navigateTo('equipo-add')">Añadir Equipo</ion-button>
+        <ion-button (click)="navigateTo('torneo')">Ver Torneos</ion-button>
+        <ion-button (click)="navigateTo('torneo-add')">Añadir Torneo</ion-button>
+      </ion-buttons>
+    </ion-toolbar>
     <form [formGroup]="torneoUpdateForm" (ngSubmit)="updateTorneo()" novalidate>
       <ion-item lines="full">
         <ion-label position="floating">Nombre</ion-label>
@@ -27,8 +38,8 @@
     <ion-button (click)="goToTorneo()" color="primary" expand="full">
       Ver Torneos
     </ion-button>
-  
-   
+
+
     <ion-button (click)="goToHome()" color="primary" expand="full">
       Ir al Inicio
     </ion-button>

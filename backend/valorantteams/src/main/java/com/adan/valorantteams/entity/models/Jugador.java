@@ -1,6 +1,7 @@
 package com.adan.valorantteams.entity.models;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,29 +15,40 @@ import jakarta.persistence.Table;
 public class Jugador {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private long id;
+    @Column(name = "nombre_jugador")
     private String nombre_jugador;
+    @Column(name = "rol")
     private String rol;
+    @Column(name = "nacionalidad")
     private String nacionalidad;
+    @Column(name = "idEquipo")
+    private long idEquipo;
     
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "equipo")
     private Equipo equipo;
     
-    
-    public Jugador() {
-    	
-    }
+    public Jugador() {}
 
-	public Jugador(String nombre_jugador, String rol, String nacionalidad, Equipo equipo) {
+    public Jugador(String nombre_jugador, String rol, String nacionalidad, long idEquipo) {
 		super();
 		this.nombre_jugador = nombre_jugador;
 		this.rol = rol;
 		this.nacionalidad = nacionalidad;
+		this.idEquipo = idEquipo;
+	}
+
+	public Equipo getEquipo() {
+		return equipo;
+	}
+
+	public void setEquipo(Equipo equipo) {
 		this.equipo = equipo;
 	}
 
-    public long getId() {
+	public long getId() {
         return id;
     }
 
@@ -67,4 +79,15 @@ public class Jugador {
     public void setNacionalidad(String nacionalidad) {
         this.nacionalidad = nacionalidad;
     }
+
+	public long getIdEquipo() {
+		return idEquipo;
+	}
+
+	public void setIdEquipo(long idEquipo) {
+		this.idEquipo = idEquipo;
+	}
+	
+	
+	
 }

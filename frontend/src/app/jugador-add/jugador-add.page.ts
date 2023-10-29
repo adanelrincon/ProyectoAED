@@ -11,12 +11,7 @@ import { JugadorService } from '../services/jugador.service';
 export class JugadorAddPage implements OnInit {
 
   jugadorForm: FormGroup;
-  jugador = {
-    nombre_jugador: '',
-    rol: '',
-    nacionalidad: '',
-    equipo: 1,
-  };
+  jugador: any;
 
   constructor(public fb: FormBuilder, 
     private jugadorService: JugadorService,
@@ -24,30 +19,27 @@ export class JugadorAddPage implements OnInit {
 
   ngOnInit() {
     this.jugadorForm = this.fb.group({
-      nombre_jugador: ['', [Validators.required, Validators.minLength(1)]],
-      rol: ['', [Validators.required, Validators.minLength(1)]],
-      nacionalidad: ['', [Validators.required, Validators.minLength(1)]],
-      equipo: ['', [Validators.required, Validators.minLength(1)]]
+      nombre_jugador: ['', [Validators.required]],
+      rol: ['', [Validators.required]],
+      nacionalidad: ['', [Validators.required]],
+      idEquipo: ['', [Validators.required]]
     });
   }
 
   addJugador() {
-    console.log('Añadiendo jugador...');
     if (this.jugadorForm.valid) {
       const nombreControl = this.jugadorForm.get('nombre_jugador');
       const rolControl = this.jugadorForm.get('rol');
       const nacionalidadControl = this.jugadorForm.get('nacionalidad');
-      const equipoControl = this.jugadorForm.get('equipo');
+      const idEquipoControl = this.jugadorForm.get('idEquipo');
   
-      if (nombreControl && rolControl && nacionalidadControl && equipoControl) {
-        const equipoValue = parseInt(equipoControl.value, 10); 
+      if (nombreControl && rolControl && nacionalidadControl && idEquipoControl) {
         this.jugador = {
           nombre_jugador: nombreControl.value,
           rol: rolControl.value,
           nacionalidad: nacionalidadControl.value,
-          equipo: equipoValue
+          idEquipo: idEquipoControl.value
         }
-        
         this.jugadorService.addJugador( this.jugador ).subscribe(response => {
           this.jugadorForm.reset();
           this.goToJugadores();
@@ -56,15 +48,12 @@ export class JugadorAddPage implements OnInit {
     }
   }
 
-  goToHome() {
-    window.location.href = "/home";
-  }
-
   goToJugadores() {
     window.location.href = '/jugador';
   }
+  
+  navigateTo(page: string) {
+    this.router.navigate(['/' + page]);
+  }
 
 }
-
-
-  

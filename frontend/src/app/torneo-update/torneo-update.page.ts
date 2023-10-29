@@ -62,4 +62,8 @@ export class TorneoUpdatePage implements OnInit {
   goToTorneo() {
     window.location.href = "/torneo";
   }
+
+  navigateTo(page: string) {
+    this.router.navigate(['/' + page]);
+  }
 }

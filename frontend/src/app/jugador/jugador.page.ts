@@ -32,12 +32,12 @@ export class JugadorPage implements OnInit {
     this.router.navigate(['/jugador-update', jugador.id]);
   }
 
-  goToHome() {
-    this.router.navigate(['/home']);
-  }
-
   goToAddJugador() {
     this.router.navigate(['/jugador-add']);
+  }
+
+  navigateTo(page: string) {
+    this.router.navigate(['/' + page]);
   }
 }
 

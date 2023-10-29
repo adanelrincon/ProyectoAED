@@ -22,8 +22,8 @@ export class TorneoAddPage implements OnInit {
 
   ngOnInit() {
     this.torneoForm = this.fb.group({
-      nombre_torneo: ['', [Validators.required, Validators.minLength(3)]],
-      localizacion: ['', [Validators.required, Validators.minLength(3)]]
+      nombre_torneo: ['', [Validators.required]],
+      localizacion: ['', [Validators.required]]
     });
   }
 
@@ -35,9 +35,7 @@ export class TorneoAddPage implements OnInit {
       if (nombreControl && localizacionControl) {
         const nombre_torneo = nombreControl.value;
         const localizacion = localizacionControl.value;
-        console.log(nombre_torneo);
-        console.log(localizacion);
-  
+
         this.torneoService.addTorneo({ nombre_torneo, localizacion }).subscribe(response => {
           this.torneoForm.reset();
           this.goToTorneo();
@@ -52,5 +50,9 @@ export class TorneoAddPage implements OnInit {
 
   goToHome(){
     this.router.navigate(['/home']);
+  }
+
+  navigateTo(page: string) {
+    this.router.navigate(['/' + page]);
   }
 }

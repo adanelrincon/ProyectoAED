@@ -5,20 +5,24 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-list>
-    <ion-item *ngFor="let jugador of jugadores">
-      {{ jugador.nombre_jugador }} - {{ jugador.rol }} - {{ jugador.nacionalidad }}
-      <ion-buttons slot="end">
-        <ion-button (click)="goToUpdateJugador(jugador)">Actualizar</ion-button>
-        <ion-button (click)="deleteJugador(jugador.id)">Borrar</ion-button>
+  <ion-content class="ion-padding">
+    <ion-toolbar>
+      <ion-buttons slot="">
+        <ion-button (click)="navigateTo('jugador')">Ver Jugadores</ion-button>
+        <ion-button (click)="navigateTo('jugador-add')">Añadir Jugador</ion-button>
+        <ion-button (click)="navigateTo('equipo')">Ver Equipos</ion-button>
+        <ion-button (click)="navigateTo('equipo-add')">Añadir Equipo</ion-button>
+        <ion-button (click)="navigateTo('torneo')">Ver Torneos</ion-button>
+        <ion-button (click)="navigateTo('torneo-add')">Añadir Torneo</ion-button>
       </ion-buttons>
-    </ion-item>
-  </ion-list>
-  <ion-button (click)="goToAddJugador()" color="primary" expand="full">
-    Añadir Jugador
-  </ion-button>
-
-  <ion-button (click)="goToHome()" color="primary" expand="full">
-    Ir al Inicio
-  </ion-button>
-</ion-content>
+    </ion-toolbar>
+    <ion-list>
+      <ion-item *ngFor="let jugador of jugadores">
+        {{ jugador.nombre_jugador }} - {{ jugador.rol }} - {{ jugador.nacionalidad }} - {{ jugador.idEquipo }}
+        <ion-buttons slot="end">
+          <ion-button (click)="goToUpdateJugador(jugador)">Actualizar</ion-button>
+          <ion-button (click)="deleteJugador(jugador.id)">Borrar</ion-button>
+        </ion-buttons>
+      </ion-item>
+    </ion-list>
+  </ion-content>

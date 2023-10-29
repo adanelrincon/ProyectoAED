@@ -29,11 +29,10 @@ public class Torneo {
     	
     }
 
-	public Torneo(String nombre_torneo, String localizacion, List<Equipo> equipos) {
+	public Torneo(String nombre_torneo, String localizacion) {
 		super();
 		this.nombre_torneo = nombre_torneo;
 		this.localizacion = localizacion;
-		this.equipos = equipos;
 	}
 
 	// Getters y Setters
